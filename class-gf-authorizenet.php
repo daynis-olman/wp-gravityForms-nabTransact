@@ -9,7 +9,7 @@ GFForms::include_payment_addon_framework();
 
 class GFAuthorizeNet extends GFPaymentAddOn {
 
-	protected $_version = '0.99';
+	protected $_version = '1.00';
 	protected $_min_gravityforms_version = '1.9.12';
 	protected $_slug = 'wp-gravityForms-nabTransact';
 	protected $_path = 'wp-gravityForms-nabTransact/authorizenet.php';
@@ -176,7 +176,16 @@ class GFAuthorizeNet extends GFPaymentAddOn {
 					),
 				),
 			),
+			
+			
+			
 			array(
+				
+				/**
+				 * Disabling option to switch on or modify settings related to automatic recurring billing
+				 * This feature is not being provisioned as part of NAB Integration
+				 * 
+				
 				'title'  => esc_html__( 'Automated Recurring Billing Setup', 'gravityformsauthorizenet' ),
 				'fields' => array(
 					array(
@@ -211,6 +220,9 @@ class GFAuthorizeNet extends GFPaymentAddOn {
 						),
 					),
 				),
+				
+				*/
+				
 				array(
 					'type'     => 'save',
 					'messages' => array( 'success' => esc_html__( 'Settings updated successfully', 'gravityformsauthorizenet' ) )
