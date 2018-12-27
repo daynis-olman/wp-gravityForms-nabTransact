@@ -9,13 +9,13 @@ GFForms::include_payment_addon_framework();
 
 class GFAuthorizeNet extends GFPaymentAddOn {
 
-	protected $_version = GF_AUTHORIZENET_VERSION;
+	protected $_version = '0.99';
 	protected $_min_gravityforms_version = '1.9.12';
-	protected $_slug = 'gravityformsauthorizenet';
-	protected $_path = 'gravityformsauthorizenet/authorizenet.php';
+	protected $_slug = 'wp-gravityForms-nabTransact';
+	protected $_path = 'wp-gravityForms-nabTransact/authorizenet.php';
 	protected $_full_path = __FILE__;
-	protected $_title = 'Authorize.Net Add-On';
-	protected $_short_title = 'Authorize.Net';
+	protected $_title = 'NAB Trasact Add-On';
+	protected $_short_title = 'NAB Trasact';
 	protected $_requires_credit_card = true;
 	protected $_supports_callbacks = true;
 

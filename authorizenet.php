@@ -6,11 +6,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 /*
-Plugin Name: Gravity Forms Authorize.Net Add-On
+Plugin Name: Gravity Forms NAB Transact Add-On
 Plugin URI: https://www.gravityforms.com
-Description: Integrates Gravity Forms with Authorize.Net, enabling end users to purchase goods and services through Gravity Forms.
-Version: 2.6
-Author: rocketgenius
+Description: Integrates Gravity Forms with NAB Transact Direct Post API, enabling end users to purchase goods and services through Gravity Forms. Forked from Authorize.net DP API
+Version: 0.1
+Author: Daynis Olman
 Author URI: https://www.rocketgenius.com
 License: GPL-2.0+
 Text Domain: gravityformsauthorizenet
