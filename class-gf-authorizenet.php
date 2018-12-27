@@ -32,8 +32,8 @@ class GFAuthorizeNet extends GFPaymentAddOn {
 	protected $_capabilities_uninstall = 'gravityforms_authorizenet_uninstall';
 	protected $_capabilities_plugin_page = 'gravityforms_authorizenet_plugin_page';
 
-	// Automatic upgrade enabled
-	protected $_enable_rg_autoupgrade = true;
+	// Automatic upgrade disabled
+	protected $_enable_rg_autoupgrade = false;
 
 	/**
 	 * @var array $_args_for_deprecated_hooks Will hold a few arrays which are needed by some deprecated hooks, keeping them out of the $authorization array so that potentially sensitive data won't be exposed in logging statements.
