@@ -386,14 +386,20 @@ class GFAuthorizeNet extends GFPaymentAddOn {
 	//-------- Form Settings ---------
 
 	/**
-	 * Prevent feeds being listed or created if the api keys aren't valid.
+	 * Disabling API Key Validation Feature for NAB Transact:
+	 * Preventing feeds being listed or created if the api keys aren't valid.
 	 *
 	 * @return bool
+	 * 
 	 */
-	public function can_create_feed() {
-		return $this->is_valid_plugin_key();
-	}
-
+   
+   /**	
+    * public function can_create_feed() {
+	*	return $this->is_valid_plugin_key();
+	*  }
+    *
+    */
+    
 	public function feed_settings_fields() {
 		$default_settings = parent::feed_settings_fields();
 
