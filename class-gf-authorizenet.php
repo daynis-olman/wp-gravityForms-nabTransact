@@ -14,8 +14,8 @@ class GFAuthorizeNet extends GFPaymentAddOn {
 	protected $_slug = 'wp-gravityForms-nabTransact';
 	protected $_path = 'wp-gravityForms-nabTransact/authorizenet.php';
 	protected $_full_path = __FILE__;
-	protected $_title = 'NAB Trasact Add-On';
-	protected $_short_title = 'NAB Trasact';
+	protected $_title = 'NAB Transact Add-On';
+	protected $_short_title = 'NAB Transact';
 	protected $_requires_credit_card = true;
 	protected $_supports_callbacks = true;
 
@@ -102,17 +102,17 @@ class GFAuthorizeNet extends GFPaymentAddOn {
 		</script>
 
 		<div class="wrap about-wrap">
-			<h1><?php esc_html_e( 'Authorize.Net Add-On v2.0', 'gravityformsauthorizenet' ) ?></h1>
+			<h1><?php esc_html_e( 'NAB Transact v1.0', 'gravityformsauthorizenet' ) ?></h1>
 
 			<div
-				class="about-text"><?php esc_html_e( 'Thank you for updating! The new version of the Gravity Forms Authorize.Net Add-On makes changes to how you manage your Authorize.Net integration.', 'gravityformsauthorizenet' ) ?></div>
+				class="about-text"><?php esc_html_e( 'Thank you for updating! The new version of the Gravity Forms NAB Transact Add-On makes changes to how you manage your NAB Transact integration.', 'gravityformsauthorizenet' ) ?></div>
 			<div class="changelog">
 				<hr/>
 				<div class="feature-section col two-col">
 					<div class="col-1">
-						<h3><?php esc_html_e( 'Manage Authorize.Net Contextually', 'gravityformsauthorizenet' ) ?></h3>
+						<h3><?php esc_html_e( 'Manage NAB Transact Contextually', 'gravityformsauthorizenet' ) ?></h3>
 
-						<p><?php esc_html_e( 'Authorize.Net Feeds are now accessed via the Authorize.Net sub-menu within the Form Settings for the Form with which you would like to integrate Authorize.Net.', 'gravityformsauthorizenet' ) ?></p>
+						<p><?php esc_html_e( 'NAB Transact Feeds are now accessed via the NAB Transact sub-menu within the Form Settings for the Form with which you would like to integrate NAB Transact.', 'gravityformsauthorizenet' ) ?></p>
 					</div>
 					<div class="col-2 last-feature">
 						<img src="http://gravityforms.s3.amazonaws.com/webimages/AddonNotice/NewAuthorizeNet2.png">
@@ -136,11 +136,11 @@ class GFAuthorizeNet extends GFPaymentAddOn {
 	//----- SETTINGS PAGES ----------//
 	public function plugin_settings_fields() {
 
-		$description = '<p style="text-align: left;">' . sprintf( esc_html__( 'Authorize.Net is a payment gateway for merchants. Use Gravity Forms to collect payment information and automatically integrate to your Authorize.Net account. If you don\'t have an Authorize.Net account, you can %ssign up for one here.%s', 'gravityformsauthorizenet' ), '<a href="http://www.authorizenet.com" target="_blank">', '</a>' ) . '</p>';
+		$description = '<p style="text-align: left;">' . sprintf( esc_html__( 'NAB Transact is a payment gateway for merchants. Use Gravity Forms to collect payment information and automatically integrate to your NAB Transact account. If you don\'t have an NAB Transact account, you can %ssign up for one here.%s', 'gravityformsauthorizenet' ), '<a href="http://www.nab.com.au/transact" target="_blank">', '</a>' ) . '</p>';
 
 		return array(
 			array(
-				'title'       => esc_html__( 'Authorize.Net Account Information', 'gravityformsauthorizenet' ),
+				'title'       => esc_html__( 'NAB Transact Account Information', 'gravityformsauthorizenet' ),
 				'description' => $description,
 				'fields'      => array(
 					array(
@@ -162,14 +162,14 @@ class GFAuthorizeNet extends GFPaymentAddOn {
 					),
 					array(
 						'name'              => 'loginId',
-						'label'             => esc_html__( 'API Login ID', 'gravityformsauthorizenet' ),
+						'label'             => esc_html__( 'NAB Merchant ID', 'gravityformsauthorizenet' ),
 						'type'              => 'api_login',
 						'class'             => 'medium',
 						'feedback_callback' => array( $this, 'is_valid_plugin_key' ),
 					),
 					array(
 						'name'              => 'transactionKey',
-						'label'             => esc_html__( 'Transaction Key', 'gravityformsauthorizenet' ),
+						'label'             => esc_html__( 'Password', 'gravityformsauthorizenet' ),
 						'type'              => 'api_key',
 						'class'             => 'medium',
 						'feedback_callback' => array( $this, 'is_valid_plugin_key' ),
@@ -192,7 +192,7 @@ class GFAuthorizeNet extends GFPaymentAddOn {
 									}",
 						'choices' => array(
 							array(
-								'label' => esc_html__( 'ARB is set up in my Authorize.Net account.', 'gravityformsauthorizenet' ),
+								'label' => esc_html__( 'ARB is set up in my NAB Transact account.', 'gravityformsauthorizenet' ),
 								'name'  => 'arb'
 							)
 						),
@@ -202,10 +202,10 @@ class GFAuthorizeNet extends GFPaymentAddOn {
 						'label'   => 'Automatic Retry',
 						'type'    => 'checkbox',
 						'hidden'  => ! $this->get_setting( 'arb' ),
-						'tooltip'       => '<h6>' . esc_html__( 'Automatic Retry', 'gravityformsauthorizenet' ) . '</h6>' . esc_html__( 'Automatic Retry enhances Recurring Billing so you do not need to manually collect failed payments. With Automatic Retry, your customer\'s subscriptions will not terminate due to payment failures and will remain in a suspended status until you update the subscription\'s payment details. Once updated, Authorize.Net will automatically retry the failed payment in the subscription.'  , 'gravityformsauthorizenet' ),
+						'tooltip'       => '<h6>' . esc_html__( 'Automatic Retry', 'gravityformsauthorizenet' ) . '</h6>' . esc_html__( 'Automatic Retry enhances Recurring Billing so you do not need to manually collect failed payments. With Automatic Retry, your customer\'s subscriptions will not terminate due to payment failures and will remain in a suspended status until you update the subscription\'s payment details. Once updated, NAB Transact will automatically retry the failed payment in the subscription.'  , 'gravityformsauthorizenet' ),
 						'choices' => array(
 							array(
-								'label' => esc_html__( 'Automatic Retry is turned on in my Authorize.Net account. To enable this feature in your Authorize.Net account, go to the Recurring Billing page under Tools and click on "Enable Automatic Retry" under Settings.', 'gravityformsauthorizenet' ),
+								'label' => esc_html__( 'Automatic Retry is turned on in my NAB Transact account. To enable this feature in your NAB Transact account, go to the Recurring Billing page under Tools and click on "Enable Automatic Retry" under Settings.', 'gravityformsauthorizenet' ),
 								'name'  => 'automaticRetry'
 							)
 						),
@@ -224,7 +224,7 @@ class GFAuthorizeNet extends GFPaymentAddOn {
 
 		$api_login_field = $this->settings_text( $field, false );
 
-		$caption = sprintf( esc_html__( 'You can find your unique %sAPI Login ID%s by clicking on the \'Account\' link at the Authorize.Net Merchant Interface. Then click \'API Login ID and Transaction Key\'. Your API Login ID will be displayed.', 'gravityformsauthorizenet' ), '<strong>', '</strong>' );
+		$caption = sprintf( esc_html__( 'You can find your unique %sAPI Login ID%s by clicking on the \'Account\' link at the NAB Transact Merchant Interface. Then click \'API Login ID and Password\'. Your API Login ID will be displayed.', 'gravityformsauthorizenet' ), '<strong>', '</strong>' );
 
 		if ( $echo ) {
 			echo $api_login_field . '</br><small>' . $caption . '</small>';
@@ -238,7 +238,7 @@ class GFAuthorizeNet extends GFPaymentAddOn {
 
 		$api_key_field = $this->settings_text( $field, false );
 
-		$caption = sprintf( esc_html__( 'You can find your unique %sTransaction Key%s by clicking on the \'Account\' link at the Authorize.Net Merchant Interface. Then click \'API Login ID and Transaction Key\'. For security reasons, you cannot view your Transaction Key, but you will be able to generate a new one.', 'gravityformsauthorizenet' ), '<strong>', '</strong>' );
+		$caption = sprintf( esc_html__( 'You can find your unique %sTransaction Key%s by clicking on the \'Account\' link at the NAB Transact Merchant Interface. Then click \'API Login ID and Password\'. For security reasons, you cannot view your Password, but you will be able to generate a new one.', 'gravityformsauthorizenet' ), '<strong>', '</strong>' );
 
 		if ( $echo ) {
 			echo $api_key_field . '</br><small>' . $caption . '</small>';
@@ -299,7 +299,7 @@ class GFAuthorizeNet extends GFPaymentAddOn {
 		$is_sandbox = $api_settings['mode'] == 'test';
 
 		if ( $is_sandbox ) {
-			$this->log_debug( __METHOD__ . '(): In test mode. Using the Authorize.net Sandbox.' );
+			$this->log_debug( __METHOD__ . '(): In test mode. Using the NAB Transact Sandbox.' );
 		}
 
 		$aim = new AuthorizeNetAIM( $api_settings['login_id'], $api_settings['transaction_key'] );
@@ -405,7 +405,7 @@ class GFAuthorizeNet extends GFPaymentAddOn {
 				'name'    => 'options',
 				'label'   => esc_html__( 'Options', 'gravityformsauthorizenet' ),
 				'type'    => 'options',
-				'tooltip' => '<h6>' . esc_html__( 'Options', 'gravityformsauthorizenet' ) . '</h6>' . esc_html__( 'Turn on or off the available Authorize.Net checkout options.', 'gravityformsauthorizenet' ),
+				'tooltip' => '<h6>' . esc_html__( 'Options', 'gravityformsauthorizenet' ) . '</h6>' . esc_html__( 'Turn on or off the available NAB Transact checkout options.', 'gravityformsauthorizenet' ),
 			),
 		);
 
@@ -438,7 +438,7 @@ class GFAuthorizeNet extends GFPaymentAddOn {
 				'name'     => 'apiSettingsEnabled',
 				'label'    => esc_html__( 'API Settings', 'gravityformsauthorizenet' ),
 				'type'     => 'checkbox',
-				'tooltip'  => '<h6>' . esc_html__( 'API Settings', 'gravityformsauthorizenet' ) . '</h6>' . esc_html__( 'Override the settings provided on the Authorize.Net Settings page and use these instead for this feed.', 'gravityformsauthorizenet' ),
+				'tooltip'  => '<h6>' . esc_html__( 'API Settings', 'gravityformsauthorizenet' ) . '</h6>' . esc_html__( 'Override the settings provided on the NAB Transact Settings page and use these instead for this feed.', 'gravityformsauthorizenet' ),
 				'onchange' => "if(jQuery(this).prop('checked')){
 										jQuery('#gaddon-setting-row-overrideMode').show();
 										jQuery('#gaddon-setting-row-overrideLogin').show();
@@ -464,7 +464,7 @@ class GFAuthorizeNet extends GFPaymentAddOn {
 				'type'          => 'radio',
 				'default_value' => 'test',
 				'hidden'        => ! $this->get_setting( 'apiSettingsEnabled' ),
-				'tooltip'       => '<h6>' . esc_html__( 'Mode', 'gravityformsauthorizenet' ) . '</h6>' . esc_html__( 'Select either Production or Test mode to override the chosen mode on the Authorize.Net Settings page.', 'gravityformsauthorizenet' ),
+				'tooltip'       => '<h6>' . esc_html__( 'Mode', 'gravityformsauthorizenet' ) . '</h6>' . esc_html__( 'Select either Production or Test mode to override the chosen mode on the NAB Transact Settings page.', 'gravityformsauthorizenet' ),
 				'choices'       => array(
 					array(
 						'label' => esc_html__( 'Production', 'gravityformsauthorizenet' ),
@@ -483,7 +483,7 @@ class GFAuthorizeNet extends GFPaymentAddOn {
 				'type'              => 'text',
 				'class'             => 'medium',
 				'hidden'            => ! $this->get_setting( 'apiSettingsEnabled' ),
-				'tooltip'           => '<h6>' . esc_html__( 'API Login ID', 'gravityformsauthorizenet' ) . '</h6>' . esc_html__( 'Enter a new value to override the API Login ID on the Authorize.Net Settings page.', 'gravityformsauthorizenet' ),
+				'tooltip'           => '<h6>' . esc_html__( 'API Login ID', 'gravityformsauthorizenet' ) . '</h6>' . esc_html__( 'Enter a new value to override the API Login ID on the NAB Transact Settings page.', 'gravityformsauthorizenet' ),
 				'feedback_callback' => array( $this, 'is_valid_custom_key' ),
 			),
 			array(
@@ -492,7 +492,7 @@ class GFAuthorizeNet extends GFPaymentAddOn {
 				'type'              => 'text',
 				'class'             => 'medium',
 				'hidden'            => ! $this->get_setting( 'apiSettingsEnabled' ),
-				'tooltip'           => '<h6>' . esc_html__( 'Transaction Key', 'gravityformsauthorizenet' ) . '</h6>' . esc_html__( 'Enter a new value to override the Transaction Key on the Authorize.Net Settings page.', 'gravityformsauthorizenet' ),
+				'tooltip'           => '<h6>' . esc_html__( 'Transaction Key', 'gravityformsauthorizenet' ) . '</h6>' . esc_html__( 'Enter a new value to override the Transaction Key on the NAB Transact Settings page.', 'gravityformsauthorizenet' ),
 				'feedback_callback' => array( $this, 'is_valid_custom_key' ),
 			),
 		);
@@ -508,7 +508,7 @@ class GFAuthorizeNet extends GFPaymentAddOn {
 			'type'    => 'checkboxes',
 			'choices' => array(
 				array(
-					'label' => esc_html__( 'Send Authorize.Net email receipt.', 'gravityformsauthorizenet' ),
+					'label' => esc_html__( 'Send NAB Transact email receipt.', 'gravityformsauthorizenet' ),
 					'name'  => 'enableReceipt'
 				),
 			)
@@ -778,7 +778,7 @@ class GFAuthorizeNet extends GFPaymentAddOn {
 			return false;
 		}
 
-		$this->log_debug( __METHOD__ . '(): Copying old Authorize.Net transactions into new table structure.' );
+		$this->log_debug( __METHOD__ . '(): Copying old NAB Transact transactions into new table structure.' );
 
 		$new_table_name = $this->get_new_transaction_table_name();
 
