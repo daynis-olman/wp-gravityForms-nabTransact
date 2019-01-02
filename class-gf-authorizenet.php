@@ -506,7 +506,7 @@ class GFAuthorizeNet extends GFPaymentAddOn {
 				'class'             => 'medium',
 				'hidden'            => ! $this->get_setting( 'apiSettingsEnabled' ),
 				'tooltip'           => '<h6>' . esc_html__( 'NAB Merchant ID', 'gravityformsauthorizenet' ) . '</h6>' . esc_html__( 'Enter a new value to override the NAB Merchant ID on the NAB Transact Settings page.', 'gravityformsauthorizenet' ),
-				'feedback_callback' => array( $this, 'is_valid_custom_key' ),
+				//'feedback_callback' => array( $this, 'is_valid_custom_key' ),
 			),
 			array(
 				'name'              => 'overrideKey',
@@ -515,7 +515,7 @@ class GFAuthorizeNet extends GFPaymentAddOn {
 				'class'             => 'medium',
 				'hidden'            => ! $this->get_setting( 'apiSettingsEnabled' ),
 				'tooltip'           => '<h6>' . esc_html__( 'Password', 'gravityformsauthorizenet' ) . '</h6>' . esc_html__( 'Enter a new value to override the Password on the NAB Transact Settings page.', 'gravityformsauthorizenet' ),
-				'feedback_callback' => array( $this, 'is_valid_custom_key' ),
+				//'feedback_callback' => array( $this, 'is_valid_custom_key' ),
 			),
 		);
 
