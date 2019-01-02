@@ -418,6 +418,10 @@ class GFAuthorizeNet extends GFPaymentAddOn {
 		//remove default options before adding custom
 		$default_settings = parent::remove_field( 'options', $default_settings );
 
+	/* Disable Initialisation Of "Options" Field In Nab Transact Feed Settings.
+	 * This Removes "Send Receipt To Customer Via Gateway Api" Which Is Not A Part
+	 * Of The Scope For This Integration
+	
 		$fields = array(
 			array(
 				'name'    => 'options',
@@ -426,7 +430,7 @@ class GFAuthorizeNet extends GFPaymentAddOn {
 				'tooltip' => '<h6>' . esc_html__( 'Options', 'gravityformsauthorizenet' ) . '</h6>' . esc_html__( 'Turn on or off the available NAB Transact checkout options.', 'gravityformsauthorizenet' ),
 			),
 		);
-
+	*/
 		//Add post fields if form has a post
 		$form = $this->get_current_form();
 		if ( GFCommon::has_post_field( $form['fields'] ) ) {
@@ -519,9 +523,9 @@ class GFAuthorizeNet extends GFPaymentAddOn {
 
 		return $default_settings;
 	}
-
+	
 	public function settings_options( $field, $echo = true ) {
-		$checkboxes = array(
+	$checkboxes = array(
 			'name'    => 'options_checkboxes',
 			'type'    => 'checkboxes',
 			'choices' => array(
@@ -530,7 +534,7 @@ class GFAuthorizeNet extends GFPaymentAddOn {
 					'name'  => 'enableReceipt'
 				),
 			)
-		);
+		); 
 
 		$html = $this->settings_checkbox( $checkboxes, false );
 
