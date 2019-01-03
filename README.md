@@ -1,4 +1,7 @@
 # NAB Transact DP Payment Gateway for Gravity Forms
+
+> Extension development in progress - not a stable build - not intended for production use
+
 Gravity Forms and NAB Transact make collecting credit card payments quick and painless! With the this Add-On you can capture credit card payments along with any additional data you want from the user right on your site, without sending the user to a 3rd party to complete the transaction.
 
 ## Seamless integration 
@@ -56,15 +59,15 @@ NAB Transact Portal: https://demo.transact.nab.com.au/nabtransact
 * MasterCard
 
 ###### Payment amounts to simulate approved transactions: $1.00
-$1.08
-$105.00
-$105.08
+* $1.08
+* $105.00
+* $105.08
 (or any total ending in 00, 08)
 
 ###### Payment amounts to simulate declined transactions: $1.51
-$1.05
-$105.51
-$105.05
+* $1.05
+* $105.51
+* $105.05
 (or any totals not ending in 00, 08)
 
 This plugin is a fork of Authorize.NET Extension for Gravity Forms
