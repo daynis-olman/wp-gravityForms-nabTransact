@@ -1,4 +1,4 @@
-# NAB Transact DP Payment Gateway for Gravity Forms
+# NAB Transact XML API Payment Gateway Extension | WordPress Gravity Forms
 
 > Extension development in progress - not a stable build - not intended for production use
 
@@ -19,15 +19,13 @@ Because of the secure nature of capturing credit card information, the NAB Trans
 ###### PHP cURL Extension
 You will need this installed on your server to facilitate communication with NAB Transact
 
-###### Required form fields
+###### Required form fields (Production)
 The following are fields that are required to be within your form to properly process payments via Authorize.net:
 
-* Name
-* Address
-* Email
-* Phone Number
-* Product
-* Credit Card
+* Name on Credit Card
+* Credit Card Number
+* Credit Card Expiry date
+* Credit Card CVV2 / CVC number
 
 #### A working NAB Transact feed
 In addition to the required fields being present within your form, you will also need to have a feed for the NAB Transact add-on to properly send the form submission data to NAB Transact. Without this, payment data is not sent to NAB Transact and therefore, the payment is not processed. NAB Transact Feed is created post add-on installation in WordPress Admin Dashboard (NAB Transact Add-on settings)
