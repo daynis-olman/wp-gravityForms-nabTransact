@@ -36,6 +36,87 @@ Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
 
 define( 'GF_AUTHORIZENET_VERSION', '2.6' );
 
+
+/// START HANDLE THE GRAVITY FORM HOOK FOR NAB API ////
+require 'nab/vendor/autoload.php';
+use Omnipay\Omnipay;
+use Omnipay\Common\CreditCard;
+
+
+add_action( 'gform_pre_submission', 'pre_submission_handler' );
+
+function de_gforms_confirmation_dynamic_redirect( $confirmation, $form, $entry, $ajax )
+{   
+    
+    $confirmation = array( 'redirect' => site_url().'/payment-error/' );
+
+    return $confirmation;
+}
+
+function pre_submission_handler( $form )
+{
+    // Stage 2 & 3 have different form ID's. This will synched prior to going live 
+    if($_POST['gform_submit']==5 || $_POST['gform_submit']==6)
+    {
+        $nabsettings = get_option( 'gravityformsaddon_wp-gravityForms-nabTransact_settings');
+        $loginId=$nabsettings['loginId'];
+        $transactionKey=$nabsettings['transactionKey'];
+        $gateway = Omnipay::create('NABTransact_SecureXML');
+        $gateway->setMerchantId($loginId);
+        $gateway->setTransactionPassword($transactionKey);
+        $isTestMode=false;
+        
+        if($nabsettings['mode']=='test')
+        {
+         $isTestMode=true;   
+        }
+        
+        $gateway->setTestMode($isTestMode);
+        
+        $Price=$_POST['input_50'];
+        $cardHolderName=$_POST['input_47_5'];
+        $cardNo=$_POST['input_47_1'];
+        $cardexpiryMonth=$_POST['input_47_2'][0];
+        $cardexpiryYear=$_POST['input_47_2'][1];
+        $cardcvv=$_POST['input_47_3'];
+        $transactionId=time();
+        
+        $card = new CreditCard([
+                'firstName' => $cardHolderName,
+                'lastName' => '',
+                'number'      => $cardNo,
+                'expiryMonth' => $cardexpiryMonth,
+                'expiryYear'  => $cardexpiryYear,
+                'cvv'         => $cardcvv,
+            ]
+        );
+    
+        $transaction = $gateway->purchase([
+                'amount'        => $Price,
+                'currency'      => 'AUD',
+                'transactionId' => $transactionId,
+                'card'          => $card,
+            ]
+        );
+    
+        $response = $transaction->send();
+        
+         if ($response->isSuccessful()) 
+         {
+            $_POST['input_51']=sprintf('Transaction %s was successful!', $response->getTransactionReference()); 
+         } 
+         else
+         {
+            $_POST['input_51']=sprintf('Transaction %s failed: %s', $response->getTransactionReference(), $response->getMessage());
+            add_filter( 'gform_confirmation', 'de_gforms_confirmation_dynamic_redirect', 10, 4 );
+         }
+        
+    }
+}
+/// END HANDLE THE GRAVITY FORM HOOK FOR NAB API ////
+
+
+
 add_action( 'gform_loaded', array( 'GF_AuthorizeNet_Bootstrap', 'load' ), 5 );
 
 class GF_AuthorizeNet_Bootstrap {
