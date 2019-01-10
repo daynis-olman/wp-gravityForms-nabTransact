@@ -16,7 +16,7 @@ The Gravity Forms NAB Transact Add-On requires Gravity Forms v1.6.2+, WordPress 
 #### Additional NAB Transact Add-On Requirements
 To be able to use the NAB Transact add-on for Gravity Forms, there are a few additional requirements beyond those of a normal add-on.
 
-###### Your form must contain 2 uniquely labelled fields to work correctly
+#### Your form must contain 2 uniquely labelled fields to work correctly
 SPECIAL FIELD #1 
 > * This field should be hidden and will receive bank responce code. 
 >
