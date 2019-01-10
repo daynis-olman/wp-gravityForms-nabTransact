@@ -10,25 +10,25 @@ Automatically capture credit card payments with NAB Transact when a form is subm
 #### Important
 For plugin to work properly you need to add below fields to payment form and ensure to label them as below
 
-###### Required Form Field #1 - Payment Total
-> This field should reflect total payment amount. 
-> Example: Field value "100.57" for $100.57 transaction
->
-> Field type: "Payment Total"
-> Field label: "Price" 
-
-###### Required Form Field #2 - Payment Status (Hidden Field)
-> This field will receive bank responce code. 
-> Example: Transaction 37376373737 was approved!
->
-> Field type: "Hidden input"
-> Field label: "Payment Status" 
-
 ## System requirements
 The Gravity Forms NAB Transact Add-On requires Gravity Forms v1.6.2+, WordPress v3.3+ and a valid SSL Certificate installed and configured on your WordPress site.
 
 #### Additional NAB Transact Add-On Requirements
 To be able to use the NAB Transact add-on for Gravity Forms, there are a few additional requirements beyond those of a normal add-on.
+
+###### Your form must contain 2 uniquely labelled fields to work correctly
+SPECIAL FIELD #1 
+> * This field should be hidden and will receive bank responce code. 
+>
+> * Field type: "Hidden input"
+> * Field unique label: "Payment Status" 
+
+SPECIAL FIELD #2 
+> * This field should contain total payment amount. 
+> * Example: Field value "100.57" for $100.57 transaction
+>
+> * Field type: "Payment Total"
+> * Field unique label: "Price"
 
 ###### SSL Certificate Installed and Configured
 Because of the secure nature of capturing credit card information, the NAB Transact add-on requires a SSL certificate to be installed and configured. You will also need to configure your WordPress site to work properly with SSL
