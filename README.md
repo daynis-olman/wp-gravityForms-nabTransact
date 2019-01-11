@@ -1,7 +1,5 @@
 # NAB Transact XML API Payment Gateway Extension | WordPress Gravity Forms
 
-> Extension development in progress - not a stable build - not intended for production use
-
 Gravity Forms and NAB Transact make collecting credit card payments quick and painless! With the this Add-On you can capture credit card payments along with any additional data you want from the user right on your site, without sending the user to a 3rd party to complete the transaction.
 
 ## Seamless integration 
