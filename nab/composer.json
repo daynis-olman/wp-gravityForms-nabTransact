@@ -1,0 +1,6 @@
+{
+    "require": {
+        "league/omnipay": "^3.0",
+        "sudiptpa/omnipay-nabtransact": "^3.0"
+    }
+}
