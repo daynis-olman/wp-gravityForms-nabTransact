@@ -16,19 +16,8 @@ The Gravity Forms NAB Transact Add-On requires Gravity Forms v1.6.2+, WordPress 
 #### Additional NAB Transact Add-On Requirements
 To be able to use the NAB Transact add-on for Gravity Forms, there are a few additional requirements beyond those of a normal add-on.
 
-#### Your form must contain 2 uniquely labelled fields to work correctly
-SPECIAL FIELD #1 
-> * This field should be hidden and will receive bank responce code. 
->
-> * Field type: "Hidden input"
-> * Field unique label: "Payment Status" 
-
-SPECIAL FIELD #2 
-> * This field should contain total payment amount. 
-> * Example: Field value "100.57" for $100.57 transaction
->
-> * Field type: "Payment Total"
-> * Field unique label: "Price"
+#### Your form must contain uniquely labelled fields to work correctly
+Please read below on Required form fields
 
 ###### SSL Certificate Installed and Configured
 Because of the secure nature of capturing credit card information, the NAB Transact add-on requires a SSL certificate to be installed and configured. You will also need to configure your WordPress site to work properly with SSL
@@ -43,6 +32,8 @@ The following are fields that are required to be within your form to properly pr
 * Credit Card Number
 * Credit Card Expiry date
 * Credit Card CVV2 / CVC number
+* Field with label 'Price' to reflect total payment amount
+* Hidden empty input field with label 'Payment Status' (will receive bank's responce code)
 
 #### A working NAB Transact feed
 In addition to the required fields being present within your form, you will also need to have a feed for the NAB Transact add-on to properly send the form submission data to NAB Transact. Without this, payment data is not sent to NAB Transact and therefore, the payment is not processed. NAB Transact Feed is created post add-on installation in WordPress Admin Dashboard (NAB Transact Add-on settings)
